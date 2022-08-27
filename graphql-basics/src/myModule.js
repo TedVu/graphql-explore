@@ -1,3 +1,5 @@
 const message = "Message from myModule.js";
 
-export { message };
+const location = "Melbourne";
+
+export { message, location as default };

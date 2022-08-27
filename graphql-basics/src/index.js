@@ -1,1 +1,3 @@
-console.log("Hello GraphQL");
+import location from "./myModule";
+
+console.log(`Location is ${location}`);
