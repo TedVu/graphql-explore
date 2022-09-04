@@ -4,14 +4,18 @@ import { GraphQLServer } from "graphql-yoga";
 const typeDefs = `
     type Query {
         hello: String!
+        name: String!
     }
 `;
 
-// Resolvers
+// Resolvers what would be returned when hitting a particular query
 const resolvers = {
   Query: {
     hello() {
       return "Hello World!";
+    },
+    name() {
+      return "My name is Ted";
     },
   },
 };
