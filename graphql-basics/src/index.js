@@ -3,7 +3,7 @@ import { GraphQLServer } from "graphql-yoga";
 // Type definitions (schema)
 const typeDefs = `
     type Query {
-      greeting(name: String): String!
+      greeting(name: String, position: String): String!
       me: User!
     }
 
@@ -18,10 +18,11 @@ const typeDefs = `
 // Resolvers what would be returned when hitting a particular query
 const resolvers = {
   Query: {
-    greeting(parentt, args, ctx, info) {
+    greeting(parent, args, ctx, info) {
       console.log(args);
-
-      return "Hello";
+      if (args.name && args.position) {
+        return `Hello ${args.name}, and ${args.name} is a ${args.position}`;
+      }
     },
     me() {
       return {
