@@ -18,7 +18,9 @@ const typeDefs = `
 // Resolvers what would be returned when hitting a particular query
 const resolvers = {
   Query: {
-    greeting() {
+    greeting(parentt, args, ctx, info) {
+      console.log(args);
+
       return "Hello";
     },
     me() {
