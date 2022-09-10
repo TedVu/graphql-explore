@@ -5,6 +5,7 @@ const typeDefs = `
     type Query {
       greeting(name: String, position: String): String!
       me: User!
+      grades: [Int]!
     }
 
     type User {
@@ -23,6 +24,9 @@ const resolvers = {
       if (args.name && args.position) {
         return `Hello ${args.name}, and ${args.name} is a ${args.position}`;
       }
+    },
+    grades(parent, args, ctx, info) {
+      return [99, 89, 100];
     },
     me() {
       return {
